@@ -1,0 +1,12 @@
+Volume 
+Un volumen es un directorio o un fichero que se monta directamente en el contenedor.
+Cuando un contenedor es borrado, toda la información contenida en él, desaparece.
+Para tener almacenamiento persistente en nuestros contenedores, que no se elimine al borrar el contenedor, es necesario utilizar volúmenes de datos.
+
+OnBuild
+La instrucción ONBUILD agrega a la imagen una trigger que se ejecutará en un momento posterior, cuando la imagen se use como base para otra construcción.
+Esto es útil si está creando una imagen que se utilizará como base para crear otras imágenes o el seteo de alguna variable de ambiente.
+
+Healthcheck
+La instrucción tiene la función de verificar el estado de salud cuando se instancia el contenedor.
+Es decir verifica si el contenedor está saludable o no.
