@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: ejercicio7-config-env
+  labels:
+    app: ejercicio7
+data:
+  DEVELOPER: Sebastian Amerio
+  CONFIG_LOCATION: /mydata/config.json
