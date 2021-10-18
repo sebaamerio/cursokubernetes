@@ -5,6 +5,5 @@ metadata:
   labels:
     app: ej8bot
 data:
-  DEVELOPER: Sebastian Amerio
-  TELEGRAM_TOKEN: 2051463595:AAH6FHICJBPmyAco3hHlxWG9phdBnhVf72w
+  TELEGRAM_TOKEN: A_COMPLETAR
  
