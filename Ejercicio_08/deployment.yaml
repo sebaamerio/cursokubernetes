@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: telegrambot
+  labels:
+    app: ej8bot
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ej8bot
+  template:
+    metadata:
+      labels:
+        app: ej8bot
+    spec:
+      containers:
+      - name: ej8bot
+        image: nicopaez/telegrambot:0.0.7
+        ports:
+        - containerPort: 4567
+        envFrom:
+          - configMapRef:
+              name: ej8bot-config-env

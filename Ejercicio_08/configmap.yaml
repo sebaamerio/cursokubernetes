@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: ej8bot-config-env
+  labels:
+    app: ej8bot
+data:
+  DEVELOPER: Sebastian Amerio
+  TELEGRAM_TOKEN: 2051463595:AAH6FHICJBPmyAco3hHlxWG9phdBnhVf72w
+ 
