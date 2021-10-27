@@ -51,8 +51,7 @@ kind: Ingress
 metadata:
   name: pingapp
   annotations:
-    nginx.ingress.kubernetes.io/rewrite-target: /
-spec:
+    nginx.ingress.kubernetes.io/rewrite-target: /$1
   rules:
   - http:
       paths:
