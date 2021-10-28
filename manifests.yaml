@@ -40,7 +40,7 @@ metadata:
   labels:
     app: pingapp
   annotations:
-    dev.okteto.com/auto-ingress: "public"
+    dev.okteto.com/auto-ingress: "private"
 spec:
   type: ClusterIP
   ports:
@@ -55,7 +55,7 @@ kind: Ingress
 metadata:
   annotations:
     dev.okteto.com/generate-host: "true"
-    dev.okteto.com/public: "true"
+    dev.okteto.com/private: "true"
   name: pingapp
 spec:
   rules:
