@@ -39,27 +39,29 @@ metadata:
   name: pingapp
   labels:
     app: pingapp
+  annotations:
+    dev.okteto.com/auto-ingress: "private"
 spec:
+  type: ClusterIP
   ports:
-   - port: 4567
+    - port: 8080
+      protocol: TCP
+      targetPort: 8080
   selector:
-    app: pingapp             
+    app: pingapp
 ---
-apiVersion: networking.k8s.io/v1
+apiVersion: networking.k8s.io/v1beta1
 kind: Ingress
 metadata:
-  name: pingapp
   annotations:
-    nginx.ingress.kubernetes.io/rewrite-target: /$1
+    dev.okteto.com/generate-host: "true"
+    dev.okteto.com/private: "true"
+  name: pingapp
 spec:
   rules:
-  - host: cursosebaamerio.cloud.okteto.net
   - http:
       paths:
-      - path: /pingapp
-        pathType: Prefix
-        backend:
-          service:
-            name: pingapp
-            port:
-              number: 4567
+      - backend:
+          serviceName: pingapp
+          servicePort: 8080
+        path: /
