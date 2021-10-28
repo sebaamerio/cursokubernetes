@@ -6,20 +6,7 @@ metadata:
     app: ej10-configmap
 data:
   DEVELOPER: Sebastian Amerio
-  CONFIG_LOCATION: Sebastian Amerio
-  ---
-apiVersion: v1
-kind: Service
-metadata:
-  name: pingapp
-  namespace: curso-kube
-  labels:
-    app: pingapp
-spec:
-  ports:
-   - port: 4567
-  selector:
-    app: pingapp
+  CONFIG_LOCATION: /mydata/config.json 
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -46,12 +33,24 @@ spec:
           - configMapRef:
               name:  ej10-configmap
 ---
+apiVersion: v1
+kind: Service
+metadata:
+  name: pingapp
+  labels:
+    app: pingapp
+spec:
+  ports:
+   - port: 4567
+  selector:
+    app: pingapp             
+---
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: pingapp
   annotations:
-    nginx.ingress.kubernetes.io/rewrite-target: /
+    nginx.ingress.kubernetes.io/rewrite-target: /$1
 spec:
   rules:
   - http:
