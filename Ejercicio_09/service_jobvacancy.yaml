@@ -1,0 +1,13 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: sjobvacancy
+  labels:
+    app: sjobvacancy
+spec:
+  selector:
+    app: jobvacancy
+  type: NodePortnc
+  ports:
+   - port: 8081
+     targetPort: 3000
